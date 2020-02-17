@@ -8,12 +8,24 @@ public class BaseParser {
         this.source = source;
     }
 
+
+
     public void nextChar() {
         curr = source.hasNext() ? source.nextChar() : '\0';
     }
 
     public boolean hasNext() {
         return curr != '\0';
+    }
+
+    public void prevChar() {
+        curr = source.hasPrev() ? source.prevChar() : null;
+    }
+
+    public void setBack(int shift) {
+        for (int i = 0; i < shift; i++) {
+            prevChar();
+        }
     }
 
     public void expect(char ch) throws Exception {

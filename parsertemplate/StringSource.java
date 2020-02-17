@@ -15,8 +15,17 @@ public class StringSource implements Source {
     }
 
     @Override
+    public boolean hasPrev() {
+        return pos >= 0;
+    }
+    @Override
     public char nextChar() {
         return str.charAt(pos++);
+    }
+
+    @Override
+    public char prevChar() {
+        return str.charAt(pos--);
     }
 
     @Override
